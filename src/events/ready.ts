@@ -1,8 +1,8 @@
-import { ActivityType } from "discord.js";
+import { ActivityType, Events } from "discord.js";
 import client from "../index.js";
 import logger from "../shared/logger.js";
 
-client.on("clientReady", () => {
+client.on(Events.ClientReady, () => {
     const activities = [
         { name: "/help", type: ActivityType.Listening },
     ];

@@ -2,7 +2,6 @@ import { Client, Collection, GatewayIntentBits, Partials } from "discord.js";
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath, pathToFileURL } from "node:url";
-import logger from "./shared/logger.js";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
@@ -23,7 +22,9 @@ const client = new Client({
     partials: [Partials.Channel, Partials.Message, Partials.User, Partials.GuildMember, Partials.Reaction],
 });
 
-client.commands = new Collection();
+client.messageCommands = new Collection();
+client.aliases = new Collection();
+client.prefix = process.env.PREFIX || "!";
 
 export default client;
 

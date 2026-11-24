@@ -2,6 +2,8 @@ import { Collection } from "discord.js";
 
 declare module "discord.js" {
     interface Client {
-        commands: Collection<string, any>;
+        messageCommands: Collection<string, MessageCommand>;
+        aliases: Collection<string, string>
+        prefix: string;
     }
 }
